@@ -1,0 +1,13 @@
+# Creating retirement_titles table
+Select em.emp_no,
+		em.first_name,
+		em.last_name,
+		t.title,
+		t.from_date,
+		t.to_date
+INTO retirement_titles
+FROM employees as em
+JOIN titles AS t
+ON em.emp_no::varchar = t.emp_no
+WHERE birth_date BETWEEN '1952-01-01' AND '1955-12-31'
+Order By emp_no;
